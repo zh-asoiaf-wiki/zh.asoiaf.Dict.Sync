@@ -1,0 +1,20 @@
+{
+  "name": "zh.asoiaf.dict.sync",
+  "version": "0.0.1",
+  "description": "Sync zh.asoiaf.Dict automatically",
+  "main": "./index.js",
+  "dependencies": {
+    "zh.asoiaf.dict": "*", 
+	"express": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/chenchenyangll/zh.asoiaf.Dict.Sync.git"
+  },
+  "keywords": [
+    "zh.asoiaf"
+  ],
+  "author": "ChenYang Chen",
+  "license": "MIT", 
+  "readmeFilename": "README.md"
+}
