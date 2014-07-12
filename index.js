@@ -30,7 +30,32 @@ var server = app.listen(port, function() {
   setInterval(sync, 3600000); // sync dict every 1 hour
 });
 
+var lastDict = {}; // dict object get last time
 var sync = function() {
-  dict.getAll();
-  console.log('dict sync.');
+  dict.getAll(function(res) {
+    var toPush = false;
+    for (var item in res.dict) {
+      if (res.dict[item] == lastDict[item]) {
+        lastDict[item] = undefined;
+      } else {
+        console.log('NEW record found: ' + item);
+        toPush = true;
+        break;
+      }
+    }
+    if (!toPush) {
+      for (var item in lastDict) {
+        if (lastDict[item]) {
+          console.log('OLD record deleted: ' + item);
+          toPush = true;
+          break;
+        }
+      }
+    }
+    if (toPush) {
+      dict.push('冰与火之歌:Dict');
+    }
+    lastDict = res.dict;
+    console.log('dict sync: ' + ((toPush) ? 'UPDATE' : 'NO CHANGE'));
+  });
 };
