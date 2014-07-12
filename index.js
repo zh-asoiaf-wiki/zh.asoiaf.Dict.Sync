@@ -18,7 +18,7 @@ app.get('/dict', function(req, res) {
     if (err) {
       console.log(err);
     } else {
-      setTimeout(sync, 900000); // when dict is downloaded, sync dict 15 min later
+      sync();
     }
   });
 });
@@ -28,6 +28,7 @@ var server = app.listen(port, function() {
   console.log('Server start...');
   
   setInterval(sync, 3600000); // sync dict every 1 hour
+  sync(); // sync the first time when server start up
 });
 
 var lastDict = {}; // dict object get last time

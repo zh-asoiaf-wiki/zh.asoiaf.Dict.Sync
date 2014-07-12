@@ -3,9 +3,13 @@
   "version": "0.0.1",
   "description": "Sync zh.asoiaf.Dict automatically",
   "main": "./index.js",
+  "scripts": {
+    "start": "node index", 
+    "preinstall": "npm update"
+  }, 
   "dependencies": {
     "zh.asoiaf.dict": "*", 
-	"express": "*"
+	  "express": "*"
   },
   "repository": {
     "type": "git",
