@@ -18,7 +18,7 @@ app.get('/dict', function(req, res) {
     if (err) {
       console.log(err);
     } else {
-      sync();
+      sync(); // force sync() when /dict is requested
     }
   });
 });
@@ -39,7 +39,7 @@ var sync = function() {
       if (res.dict[item] == lastDict[item]) {
         lastDict[item] = undefined;
       } else {
-        console.log('NEW record found: ' + item);
+        console.log('NEW record found: ' + item + ' => ' + res.dict[item]);
         toPush = true;
         break;
       }
@@ -47,14 +47,14 @@ var sync = function() {
     if (!toPush) {
       for (var item in lastDict) {
         if (lastDict[item]) {
-          console.log('OLD record deleted: ' + item);
+          console.log('OLD record deleted: ' + item + ' => ' + lastDict[item]);
           toPush = true;
           break;
         }
       }
     }
     if (toPush) {
-      dict.push('冰与火之歌:Dict');
+      dict.push('MediaWiki:Common.js/dict');
     }
     lastDict = res.dict;
     console.log('dict sync: ' + ((toPush) ? 'UPDATE' : 'NO CHANGE'));
