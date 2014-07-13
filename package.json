@@ -2,15 +2,16 @@
   "name": "zh.asoiaf.dict.sync",
   "version": "0.0.1",
   "description": "Sync zh.asoiaf.Dict automatically",
-  "main": "./index.js",
+  "private": true,
   "scripts": {
-    "start": "node index", 
+    "start": "node index.js", 
     "preinstall": "npm update"
-  }, 
-  "dependencies": {
-    "zh.asoiaf.dict": "*", 
-	  "express": "*"
   },
+  "dependencies": {
+    "zh.asoiaf.dict": "*",   
+    "express": "*",
+    "jade": "*"
+  }, 
   "repository": {
     "type": "git",
     "url": "git://github.com/chenchenyangll/zh.asoiaf.Dict.Sync.git"
@@ -20,5 +21,5 @@
   ],
   "author": "ChenYang Chen",
   "license": "MIT", 
-  "readmeFilename": "README.md"
+  "readmeFilename": "README.md"  
 }
