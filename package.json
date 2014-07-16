@@ -8,9 +8,7 @@
     "preinstall": "npm update"
   },
   "dependencies": {
-    "zh.asoiaf.dict": "*",   
-    "express": "*",
-    "jade": "*"
+    "zh.asoiaf.dict": "*"
   }, 
   "repository": {
     "type": "git",
