@@ -40,6 +40,4 @@ var sync = function() {
   });
 };
 
-setInterval(sync, 60000); // sync dict every 1 hour
-
 module.exports = sync;
