@@ -34,6 +34,8 @@ var sync = function() {
     }
     if (toPush) {
       dict.push('MediaWiki:Common.js/dict');
+      dict.pushZhEn('Template:zh-en');
+      dict.pushEnZh('Template:en-zh');
     }
     lastDict = res.dict;
     console.log('dict sync: ' + ((toPush) ? 'UPDATE' : 'NO CHANGE'));
